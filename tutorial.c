@@ -1,22 +1,44 @@
 #include <stdio.h>
 
 int main() {
-    double zahl1;
-    double zahl2;
-    char operator;
+    char *arr[50];
+    int i = 0;
     
-    printf("Gebe eine Zahl ein: ");
-    scanf("%lf", &zahl1);
-    printf("\nGebe noch eine Zahl ein: ");
-    scanf("%lf", &zahl2);
-    printf("\nGebe noch eine Zahl Gebe einen Operator ein: ");
-    scanf("%c", &operator);
+    printf("Add a phone number ");
+    char *newPhoneNr[255];
+    scanf("%s", newPhoneNr);
+    arr[i] = newPhoneNr;
     
+     for ( i = 0; i < 5; i++ )
+        printf("String %d : %s\n", i+1, arr[i] );
+        
+    return 0;
+}
+
+
+
+
+
+
+// ------ v2
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    showMenu();
+
+
+    return 0;
+}
+
+int showMenu() {
+    printf("###### Herzlich willkommen ######\n");
+    printf("(0) Telefonnummern anzeigen\n");
+    printf("(1) Neue Nummer hinzufügen\n");
     printf("\n\n");
-//    printf("%lf %lf %c", zahl1, zahl2, operator);
-    if(operator == "+") {
-        printf("%lf + %lf = %lf", zahl1, zahl2, zahl1 + zahl2);
-    }
     
     return 0;
 }
