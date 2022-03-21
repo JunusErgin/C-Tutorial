@@ -8,32 +8,38 @@ int main() {
         "+49 15721982389",
     };
     int nextIndex = 4;
+    
+    start(nextIndex, phoneNumbers);
 
-    if(showMenu() == 0) {
-        showPhoneNumbers(phoneNumbers);
-    } else {
-      addPhoneNumber(nextIndex, phoneNumbers);
-    }
     return 0;
 }
 
-void showPhoneNumbers(char myPhoneNumbers[4][256]) {
+void start(int nextIndex, char phoneNumbers[100][256]){
+    if(showMenu() == 0) {
+        showPhoneNumbers(nextIndex, phoneNumbers);
+    } else {
+      addPhoneNumber(nextIndex, phoneNumbers);
+    }
+}
+
+void showPhoneNumbers(int nextIndex, char phoneNumbers[100][256]) {
     // Code zum Telefonnummern anzeigen
     printf("Telefonnummern:\n");
     for(int i = 0; i < 10; i++) {
-        printf("(%d) %s \n", i, &myPhoneNumbers[i]);
+        printf("(%d) %s \n", i, &phoneNumbers[i]);
     }
-
+    
+    start(nextIndex, phoneNumbers);
 }
 // Bsp: addPhoneNumber(4, {...})
-void addPhoneNumber(int index, char myPhoneNumbers[4][256]){ 
-    // index = 4
+void addPhoneNumber(int nextIndex, char phoneNumbers[100][256]){ 
+    // nextIndex = 4
     printf("Neue Nummer hinzufügen: ");
     char newNumber[255];
     scanf("%s", newNumber);
-    strcpy(myPhoneNumbers[index], newNumber);
-    index++;
-    showPhoneNumbers(myPhoneNumbers);
+    strcpy(phoneNumbers[nextIndex], newNumber);
+    nextIndex++;
+    start(nextIndex, phoneNumbers);
 }
 
 int showMenu() {
