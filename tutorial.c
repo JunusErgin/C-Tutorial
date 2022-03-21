@@ -1,18 +1,28 @@
 #include <stdio.h>
 
 int main() {
+    char phoneNumbers[4][256] = {
+        "+49 15721983000",
+        "+49 15721983229",
+        "+49 15721922349",
+        "+49 15721982389",
+    };
     
     if(showMenu() == 0) {
-        showPhoneNumbers();
+        showPhoneNumbers(phoneNumbers);
     } else {
       addPhoneNumber();
     }
     return 0;
 }
 
-void showPhoneNumbers() {
+void showPhoneNumbers(char myPhoneNumbers[4][256]) {
     // Code zum Telefonnummern anzeigen
-    printf("Telefonnummern:");
+    printf("Telefonnummern:\n");
+    for(int i = 0; i < 4; i++) {
+        printf("(%d) %s \n", i, &myPhoneNumbers[i]);
+    }
+
 }
 
 void addPhoneNumber(){
