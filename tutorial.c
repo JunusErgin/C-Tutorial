@@ -1,17 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    char phoneNumbers[4][256] = {
+    char phoneNumbers[100][256] = {
         "+49 15721983000",
         "+49 15721983229",
         "+49 15721922349",
         "+49 15721982389",
     };
-    
+    int nextIndex = 4;
+
     if(showMenu() == 0) {
         showPhoneNumbers(phoneNumbers);
     } else {
-      addPhoneNumber();
+      addPhoneNumber(nextIndex, phoneNumbers);
     }
     return 0;
 }
@@ -19,14 +20,20 @@ int main() {
 void showPhoneNumbers(char myPhoneNumbers[4][256]) {
     // Code zum Telefonnummern anzeigen
     printf("Telefonnummern:\n");
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 10; i++) {
         printf("(%d) %s \n", i, &myPhoneNumbers[i]);
     }
 
 }
-
-void addPhoneNumber(){
-    printf("Neue Nummer hinzufügen");
+// Bsp: addPhoneNumber(4, {...})
+void addPhoneNumber(int index, char myPhoneNumbers[4][256]){ 
+    // index = 4
+    printf("Neue Nummer hinzufügen: ");
+    char newNumber[255];
+    scanf("%s", newNumber);
+    strcpy(myPhoneNumbers[index], newNumber);
+    index++;
+    showPhoneNumbers(myPhoneNumbers);
 }
 
 int showMenu() {
