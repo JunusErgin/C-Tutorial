@@ -1,44 +1,35 @@
 #include <stdio.h>
 
 int main() {
-    char *arr[50];
-    int i = 0;
     
-    printf("Add a phone number ");
-    char *newPhoneNr[255];
-    scanf("%s", newPhoneNr);
-    arr[i] = newPhoneNr;
-    
-     for ( i = 0; i < 5; i++ )
-        printf("String %d : %s\n", i+1, arr[i] );
-        
+    if(showMenu() == 0) {
+        showPhoneNumbers();
+    } else {
+      addPhoneNumber();
+    }
     return 0;
 }
 
+void showPhoneNumbers() {
+    // Code zum Telefonnummern anzeigen
+    printf("Telefonnummern:");
+}
 
-
-
-
-
-// ------ v2
-
-
-
-// Online C compiler to run C program online
-#include <stdio.h>
-
-int main() {
-    showMenu();
-
-
-    return 0;
+void addPhoneNumber(){
+    printf("Neue Nummer hinzufügen");
 }
 
 int showMenu() {
+    int selection;
     printf("###### Herzlich willkommen ######\n");
     printf("(0) Telefonnummern anzeigen\n");
     printf("(1) Neue Nummer hinzufügen\n");
+    scanf(" %d", &selection);
     printf("\n\n");
-    
-    return 0;
+    if(selection == 0 || selection == 1) {
+        return selection;
+    } else {
+        printf("Eingabe ungültig!\n");
+        return showMenu();
+    }
 }
