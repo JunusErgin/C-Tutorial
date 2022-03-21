@@ -1,26 +1,22 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 
 int main() {
-    char* receiver[256];
-    char* greeting = "Sehr geehrter";
-    int attachments = 2;
-    int gender = 2;
+    double zahl1;
+    double zahl2;
+    char operator;
     
-    printf("An wen ist der Brief gerichtet? ");
-    scanf("%[^\n]", &receiver);
+    printf("Gebe eine Zahl ein: ");
+    scanf("%lf", &zahl1);
+    printf("\nGebe noch eine Zahl ein: ");
+    scanf("%lf", &zahl2);
+    printf("\nGebe noch eine Zahl Gebe einen Operator ein: ");
+    scanf("%c", &operator);
     
-    printf("Ich schreibe an (1) Eine Frau (2) Einen Mann ");
-    scanf("%d", &gender);
-    
-    if(gender == 1) {
-        greeting = "Sehr geehrte";
+    printf("\n\n");
+//    printf("%lf %lf %c", zahl1, zahl2, operator);
+    if(operator == "+") {
+        printf("%lf + %lf = %lf", zahl1, zahl2, zahl1 + zahl2);
     }
-    
-    printf("\n\n%s %s,\n\n", greeting, receiver);
-    printf("Hiermit übermittel ich ihnen die notwendigen Papiere.\n\n");
-    
-    printf("Anhänge: %d", attachments);
     
     return 0;
 }
